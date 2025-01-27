@@ -1,0 +1,183 @@
+body {
+  background: linear-gradient(to right, #00BFFF, #D3A7F7);
+  margin: 0;
+  height: 100vh;
+}
+
+nav {
+  padding: 0 1rem;
+  background: linear-gradient(to right, #D3A7F7, #FFB6C1);
+}
+
+.page-footer {
+  background: linear-gradient(to right, #D3A7F7, #FFB6C1);
+}
+
+.brand-logo {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+.content {
+  min-height: calc(100vh - 70px - 64px);
+  padding: 1.5rem 0;
+}
+
+.goods {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content {
+  flex-grow: 1;
+}
+
+.cart {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+
+  cursor: pointer;
+  z-index: 5;
+  padding: 1rem;
+  
+  border-radius: 10%;
+ 
+  transition: transform 0.3s ease;
+}
+
+.cart:hover {
+  transform: scale(1.2);
+}
+
+@media (min-width: 767px) {
+  .cart {
+    top: 5rem;
+    bottom: unset;
+  }
+}
+
+.basket-list {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  background-color: #FFB6C1; /* Цвет фона корзины */
+  width: 90%;
+  max-width: 50rem;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  overflow-y: auto;
+  max-height: 80vh;
+  
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+
+  animation: show 500ms ease-in-out;
+}
+
+/* Элементы списка */
+.basket-list .collection-item {
+  font-size: 1.4rem;
+  padding: 1rem;
+  border-bottom: 1px solid #D3A7F7; /* Легкая линия между строками */
+  color: #3E1A47; /* Цвет текста элементов */
+}
+
+/* Активный элемент */
+.basket-list .collection-item.active {
+  background: linear-gradient(to right, #D3A7F7, #FFB6C1); /* Градиент для активных элементов */
+  color: white;
+}
+
+/* Иконка в корзине */
+.basket-list .collection-item .secondary-content {
+  color: #FF6347; /* Цвет для иконки "close" */
+}
+
+.basket-list .collection-item .secondary-content i {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.basket-close {
+  cursor: pointer;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: #FF6347;
+}
+
+@keyframes show {
+  from {
+    top: 70%;
+    opacity: 0;
+  }
+  to {
+    top: 50;
+    opacity: 1;
+  }
+}
+
+.basket-quantity {
+  cursor: pointer;
+  vertical-align: middle;
+  color: #fff;
+  background-color: #D3A7F7;
+}
+
+
+.btn-order {
+  cursor: pointer;
+  position: absolute;
+  right: 2rem;
+  background-color: #D3A7F7; /* Основной цвет кнопки */
+  padding: 7px 15px;
+  border-radius: 3px;
+  color: #fff;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход цвета */
+}
+
+.btn-order:focus {
+  outline: none; /* Убираем стандартный фокус */
+  background-color: #D3A7F7; /* Цвет остается таким же, как в обычном состоянии */
+  color: #fff; /* Сохраняем текст */
+}
+
+.btn-order:hover {
+  background-color: #b75fff; /* Цвет при наведении */
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #D3A7F7; /* Основной цвет кнопки */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход цвета */
+}
+
+.btn:focus {
+  outline: none; /* Убираем стандартный фокус */
+  background-color: #D3A7F7; /* Цвет остается таким же, как в обычном состоянии */
+  color: #fff; /* Сохраняем текст */
+}
+
+.btn:hover {
+  background-color: #b75fff; /* Цвет при наведении */
+}
+
+#toast-container {
+  top: 3rem !important;
+}
